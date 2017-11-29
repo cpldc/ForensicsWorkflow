@@ -1,0 +1,4 @@
+#!/bin/bash
+read -p "Enter Collection Name: " collName
+exiftool -a -r -csv -ImageHeight -ImageWidth -XResolution -YResolution * > ./$collName.csv
+# sed 's/$/, =IF(OR(B2>1023,C2>1023),"OK","NOK"),IF(AND(E2="OK",D2>299),"OK","NOK")/' $collName.csv > $collName2.csv 

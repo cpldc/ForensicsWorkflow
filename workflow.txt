@@ -1,0 +1,44 @@
+Plug in USB drive.  A new icon will appear on the desktop.  Double clicking the icon will mount it, and make another icon appear; double click that one.
+
+________________________________
+
+The file manager, Thunar, will open.  Navigate to the top level directory, under which all relevant images are found.  
+
+________________________________
+
+
+Right click in empty space in the folder and click "open terminal here".  At the command prompt, type 
+
+exifscript
+
+and press enter.  You will be asked to name the collection; this isn't a permanent choice, it merely names the .csv file.
+
+This will output a csv file in that directory.  Close the terminal window and double click the .csv to open.
+
+LibreOffice Calc will open.  This is an open source program similar to Excel.  It will ask you to verify some options to use while importing the CSV file; the defaults are ok, so just click "Ok".
+
+First, verify your headers are all present and in this order:
+
+A: SourceFile
+B: ImageHeight
+C: ImageWidth
+D: XResolution
+E: YResolution
+
+If these are all in this order, then paste the following formula into the first blank column (probably F).
+
+=IF(AND(OR(B2>1023,C2>1023),OR(D2>299,E2>299)),"Ok!","Delete File")
+
+This will identify any files whose length values are both less than 1024, and whose DPI is lower than 300.  We will use these designations to delete the files that don't meet our base criteria.
+
+Filter column F to show only files that are to be deleted.  (Filters will probably be turned off; go to Data and click Auto Filter to turn them on.)
+
+Now open the text editor, gedit, by clicking Applications and going to Accessories > gedit.
+
+Back in Calc, select the file names that are to be deleted and copy/paste the column (without the header) into gedit.  In gedit, save this file as ToBeDeleted.txt (filename is case sensitive).
+
+Save the CSV and close Calc and gedit.  Back in Thunar, right click in the empty space and click "Open Terminal Here".  Type this command: 
+
+xargs rm < ToBeDeleted.txt
+
+This will delete all the files named in the file.  Now, only 
