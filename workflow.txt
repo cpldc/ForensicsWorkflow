@@ -1,13 +1,14 @@
-Plug in USB drive.  A new icon will appear on the desktop.  Double clicking the icon will mount it, and make another icon appear; double click that one.
 
-________________________________
+___________________Step #: Open Drive, Navigate
+
+Plug in USB drive.  A new icon will appear on the desktop.  Double clicking the icon will mount it, and make another icon appear; double click that one.
 
 The file manager, Thunar, will open.  Navigate to the top level directory, under which all relevant images are found.  
 
-________________________________
+___________________Step #: Run Exiftool Script and Select files that meet base criteria
 
 
-Right click in empty space in the folder and click "open terminal here".  At the command prompt, type 
+Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  At the command prompt, type 
 
 exifscript
 
@@ -31,14 +32,57 @@ If these are all in this order, then paste the following formula into the first 
 
 This will identify any files whose length values are both less than 1024, and whose DPI is lower than 300.  We will use these designations to delete the files that don't meet our base criteria.
 
-Filter column F to show only files that are to be deleted.  (Filters will probably be turned off; go to Data and click Auto Filter to turn them on.)
+Filter column F to show only files that are "Ok!" - hide all rows whose files should be deleted.  (Filters will probably be turned off; go to Data and click Auto Filter to turn them on.)
 
-Now open the text editor, gedit, by clicking Applications and going to Accessories > gedit.
+Now return to Thunar.  In your top level folder, right click empty space (or space to the far right if in "details" view), and click "Create Document > Empty File".  It will ask you for a name; name it 
 
-Back in Calc, select the file names that are to be deleted and copy/paste the column (without the header) into gedit.  In gedit, save this file as ToBeDeleted.txt (filename is case sensitive).
+ToBeCopied.txt 
+
+Now double click the new, empty file called ToBeCopied.txt - it should open immediately in gedit, a simple text editor; if it asks how you want to open it, choose gedit.
+
+Back in Calc, select the file names *that are to be retained* and copy/paste the column (without the header) into gedit.  Save the file (ToBeCopied.txt) 
+
+___________________Step #: Copy Files to Local Working Directory
+
 
 Save the CSV and close Calc and gedit.  Back in Thunar, right click in the empty space and click "Open Terminal Here".  Type this command: 
 
-xargs rm < ToBeDeleted.txt
+CopyGoodFiles
 
-This will delete all the files named in the file.  Now, only 
+This will ask for the name of your collection again - and again, it's not a final decision, just a working title is adequate.  This script will create a new folder with this name and copy all the files there.  This may take a long time.
+
+______________________Step #: Virus Scanning
+
+*Note: BitCurator provides extensive fore(and none are highlighted in red - red indicates that one or more files will be overwritten by the proposed changes)nsics tools, many of which are directed at recovering and managing more difficult hardware (old or damaged hard drives).  At a minimum, our inputs will be virus scanned, but if additional examination is required, see BitCurator documentation: https://wiki.bitcurator.net/index.php?title=Main_Page
+
+On the desktop, you will find a number of folders with forensics tools.  Double click the "Additional Tools" folder and, within it, double click "ClamTK".
+
+A window called "Virus Scanner" will open.  Under the "Analysis" header, you will see "Scan a directory" - Double click that.
+
+A file browser will open; find your working directory (by default, in the Documents folder, there will be a folder using the Colleciton Name you used in Step #).  Select that folder, and your files will be virus scanned.  I haven't actually seen what happens when a virus is found, but I trust you can figure it out.
+
+
+______________________Step #: Renaming
+
+There are 2 renaming methods.  The main method uses Thunar, and goes into each folder individually and renames items.  The secondary method can be used whenever a consistent naming structure can be applied to files across many folders.  If the second method seems most appropriate, please call NW at #####
+
+Select files: 
+
+In Thunar, navigate to the directory that contains the files to be renamed.
+
+Select the files in these ways: 
+    Ctrl-A : Selects all files.  Use this when all files in the folder are to be renamed consistently.
+    Ctrl-Click : Selects only the files clicked. Use this when you have a subset of renames to apply to a small, disparate selection.
+    Shift-Click : Selects all files between 2 clicks.  Use this when you have a subset of renames to apply to a larger, contiguous selection.
+
+Right click the selection and select "Rename" to bring up Thunar's renaming tool.
+
+This new window has 3 panes: the current file name is on the left; the future file name is on the right.  The bottom is the renaming you would like to apply.  Note that future filenames will appear in red if they will overwrite each other.
+
+In the bottom pane, top left drop down, select "Numbering".  Select the number of preceding 0s in Number Format.  Below that, in Text Format, select Text - Number.  Start With should be set to the number you want to start with (003568012, or whatever).  
+
+Text is where you put your special collection file naming prefix.  
+
+Once the filenames in the right column appear correct, click Rename Files.  
+
+At this point, we don't know what happens next, so that's about it for now.

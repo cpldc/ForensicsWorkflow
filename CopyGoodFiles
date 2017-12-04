@@ -1,0 +1,4 @@
+#!/bin/bash
+read -p "Enter Collection Name: " collName
+mkdir ~/Documents/$collName
+rsync -av --files-from=ToBeCopied.txt . ~/Documents/$collName/
