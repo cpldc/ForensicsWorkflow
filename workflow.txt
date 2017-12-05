@@ -1,11 +1,11 @@
 
-___________________Step #: Open Drive, Navigate
+___________________Step 1: Open Drive, Navigate
 
 Plug in USB drive.  A new icon will appear on the desktop.  Double clicking the icon will mount it, and make another icon appear; double click that one.
 
 The file manager, Thunar, will open.  Navigate to the top level directory, under which all relevant images are found.  
 
-___________________Step #: Run Exiftool Script and Select files that meet base criteria
+___________________Step 2: Run Exiftool Script and Select files that meet base criteria
 
 
 Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  At the command prompt, type 
@@ -42,7 +42,7 @@ Now double click the new, empty file called ToBeCopied.txt - it should open imme
 
 Back in Calc, select the file names *that are to be retained* and copy/paste the column (without the header) into gedit.  Save the file (ToBeCopied.txt) 
 
-___________________Step #: Copy Files to Local Working Directory
+___________________Step 3: Copy Files to Local Working Directory
 
 
 Save the CSV and close Calc and gedit.  Back in Thunar, right click in the empty space and click "Open Terminal Here".  Type this command: 
@@ -51,7 +51,7 @@ CopyGoodFiles
 
 This will ask for the name of your collection again - and again, it's not a final decision, just a working title is adequate.  This script will create a new folder with this name and copy all the files there.  This may take a long time.
 
-______________________Step #: Virus Scanning
+______________________Step 4: Virus Scanning
 
 *Note: BitCurator provides extensive fore(and none are highlighted in red - red indicates that one or more files will be overwritten by the proposed changes)nsics tools, many of which are directed at recovering and managing more difficult hardware (old or damaged hard drives).  At a minimum, our inputs will be virus scanned, but if additional examination is required, see BitCurator documentation: https://wiki.bitcurator.net/index.php?title=Main_Page
 
@@ -59,12 +59,12 @@ On the desktop, you will find a number of folders with forensics tools.  Double 
 
 A window called "Virus Scanner" will open.  Under the "Analysis" header, you will see "Scan a directory" - Double click that.
 
-A file browser will open; find your working directory (by default, in the Documents folder, there will be a folder using the Colleciton Name you used in Step #).  Select that folder, and your files will be virus scanned.  I haven't actually seen what happens when a virus is found, but I trust you can figure it out.
+A file browser will open; find your working directory (by default, in the Documents folder, there will be a folder using the Collection Name you used in Step 3).  Select that folder, and your files will be virus scanned.  I haven't actually seen what happens when a virus is found, but I trust you can figure it out.
 
 
-______________________Step #: Renaming
+______________________Step 5: Renaming
 
-There are 2 renaming methods.  The main method uses Thunar, and goes into each folder individually and renames items.  The secondary method can be used whenever a consistent naming structure can be applied to files across many folders.  If the second method seems most appropriate, please call NW at #####
+There are 2 renaming methods.  The main method uses Thunar, and goes into each folder individually and renames items.  The secondary method can be used whenever a consistent naming structure can be applied to files across many folders.  If the second method seems most appropriate, call Digital Programs Coordinator.
 
 Select files: 
 
