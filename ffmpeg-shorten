@@ -1,0 +1,5 @@
+#!/bin/bash
+read -e -p "input file: " filename
+read -p "start: " start
+read -p "length: " len
+ffmpeg -ss $start -i $filename -c copy -t $len short-$filename

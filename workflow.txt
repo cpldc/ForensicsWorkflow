@@ -1,20 +1,37 @@
 
+
+
+___________________Step 0: Adequate Inputs
+
+This process assumes you have been given a hard drive containing digitized content.  The drive should contain an "instructions file" which makes clear the following information:
+
+    1. The name of the submitting department (SPE, NNHC, etc)
+    2. The name and code of the collection itself (HDG, etc)
+    3. Any special instructions or rule exceptions about preservation (whether standards need to be lowered in any cases, etc)
+    4. Clear instructions how to use current filenames to create correct filenames.
+
+If any of this information is inadequate, please return the drive to the contributing department for review.  (There may not be any special instructions (#3); if none are present, but all other information is adequate, it will be assumed there are no special instructions.)  The contributing department may not include an indication which folder on the drive contains the important content; if it is not immediately obvious, be sure to clarify this point.
+
 ___________________Step 1: Open Drive, Navigate
 
-Plug in USB drive.  A new icon will appear on the desktop.  Double clicking the icon will mount it, and make another icon appear; double click that one.
+Plug in USB drive.  A new icon will appear on the desktop.  Double clicking the icon will open the file manager, Thunar.  Navigate to the folder on the drive contains the important content, under which all relevant images are found.  
 
-The file manager, Thunar, will open.  Navigate to the top level directory, under which all relevant images are found.  
+            OpenDrive.webm
 
 ___________________Step 2: Run Exiftool Script and Select files that meet base criteria
 
 
-Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  At the command prompt, type 
+Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  (Do not right click on a folder and select Open Terminal Here!  That will open the terminal in that folder instead.)
+
+            OpenTerminal.webm
+
+At the command prompt, type 
 
 exifscript
 
-and press enter.  You will be asked to name the collection; this isn't a permanent choice, it merely names the .csv file.
+and press enter.  You will be asked to name the collection; this isn't a permanent choice, it merely names the output file.
 
-This will output a csv file in that directory.  Close the terminal window and double click the .csv to open.
+This will output a csv (comma separated value) file in that directory.  Close the terminal window and double click the .csv to open.
 
 LibreOffice Calc will open.  This is an open source program similar to Excel.  It will ask you to verify some options to use while importing the CSV file; the defaults are ok, so just click "Ok".
 
@@ -30,20 +47,27 @@ If these are all in this order, then paste the following formula into the first 
 
 =IF(AND(OR(B2>1023,C2>1023),OR(D2>299,E2>299)),"Ok!","Delete File")
 
+            csv.webm
+
 This will identify any files whose length values are both less than 1024, and whose DPI is lower than 300.  We will use these designations to delete the files that don't meet our base criteria.
 
 Filter column F to show only files that are "Ok!" - hide all rows whose files should be deleted.  (Filters will probably be turned off; go to Data and click Auto Filter to turn them on.)
+
+            CalcFilter.webm
 
 Now return to Thunar.  In your top level folder, right click empty space (or space to the far right if in "details" view), and click "Create Document > Empty File".  It will ask you for a name; name it 
 
 ToBeCopied.txt 
 
-Now double click the new, empty file called ToBeCopied.txt - it should open immediately in gedit, a simple text editor; if it asks how you want to open it, choose gedit.
+Now double click the file called ToBeCopied.txt - it should open immediately in gedit, a simple text editor; if it asks how you want to open it, choose gedit.  The file will be empty.
 
-Back in Calc, select the file names *that are to be retained* and copy/paste the column (without the header) into gedit.  Save the file (ToBeCopied.txt) 
+Back in Calc, select the file names *that are to be retained* and copy/paste the column (without the header) into gedit.  Click Save to save the file (ToBeCopied.txt).
+
+            ToBeCopied.webm
+
+If there are any special instructions from the contributing department regarding files that need to be retained regardless of image quality, be sure to add them to the file, following the format of the rest.  You can copy/paste their names from the spreadsheet as well.
 
 ___________________Step 3: Copy Files to Local Working Directory
-
 
 Save the CSV and close Calc and gedit.  Back in Thunar, right click in the empty space and click "Open Terminal Here".  Type this command: 
 
@@ -53,14 +77,15 @@ This will ask for the name of your collection again - and again, it's not a fina
 
 ______________________Step 4: Virus Scanning
 
-*Note: BitCurator provides extensive fore(and none are highlighted in red - red indicates that one or more files will be overwritten by the proposed changes)nsics tools, many of which are directed at recovering and managing more difficult hardware (old or damaged hard drives).  At a minimum, our inputs will be virus scanned, but if additional examination is required, see BitCurator documentation: https://wiki.bitcurator.net/index.php?title=Main_Page
+*Note: BitCurator provides extensive forensics tools, many of which are directed at recovering and managing more difficult hardware (old or damaged hard drives).  At a minimum, our inputs will be virus scanned, but if additional examination is required, see BitCurator documentation: https://wiki.bitcurator.net/index.php?title=Main_Page
 
 On the desktop, you will find a number of folders with forensics tools.  Double click the "Additional Tools" folder and, within it, double click "ClamTK".
 
 A window called "Virus Scanner" will open.  Under the "Analysis" header, you will see "Scan a directory" - Double click that.
 
-A file browser will open; find your working directory (by default, in the Documents folder, there will be a folder using the Collection Name you used in Step 3).  Select that folder, and your files will be virus scanned.  I haven't actually seen what happens when a virus is found, but I trust you can figure it out.
+A file browser will open; find your working directory (by default, in the Documents folder, there will be a folder using the Collection Name you used in Step 3).  Select that folder, and your files will be virus scanned.  If viruses are found, follow the onscreen prompts to resolve them.  
 
+            VirusScan.webm
 
 ______________________Step 5: Renaming
 
@@ -85,4 +110,18 @@ Text is where you put your special collection file naming prefix.
 
 Once the filenames in the right column appear correct, click Rename Files.  
 
-At this point, we don't know what happens next, so that's about it for now.
+______________________Step 6: Submitting the files for upload
+
+Return to the Desktop.  Right click the external hard drive icon and click "Unmount Volume".  (If, instead, you have the option to "Mount Volume", click the other icon - there should be a duplicate on the Desktop.)  You will be asked for the administrator password (by default, this is bcadmin).  Another window will pop up saying that the drive is unmounted; click ok.
+
+Physically unplug the drive and set it aside.
+
+Plug in the drive that will be submitted for cloud storage upload (the "Joe Drive").  Double click its icon on the desktop to mount it.  Double click on the new icon to open the drive in Thunar.
+
+Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  At the command prompt, type:
+
+JoeCopyScript
+
+And press enter.  The script will ask you to enter the name of your working directory.  This must be identical to the name you gave in step 3.  Case sensitive.  (If it's not identical, nothing disasterous will happen, the script just won't be able to find the directory, and won't copy anything.)
+
+When this copy is complete, right click the drive's icon on the desktop, and select Unmount Volume.  Unplug the drive and go give it to Joe.

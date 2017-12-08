@@ -13,4 +13,9 @@ CopyGoodFiles
 workflow.txt:
 	Describes process in detail
 
+JoeCopy: 
+	rsync -av from ~/workingdirectory to .
+
+webm-takevid & ffmpeg-shorten: 
+	just screencap scripts
 

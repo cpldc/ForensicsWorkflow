@@ -1,0 +1,3 @@
+#!/bin/bash
+read -e -p "Enter the name of the working directory, should be in Documents folder: " dirName
+rsync -av ~/Documents/$dirName .
