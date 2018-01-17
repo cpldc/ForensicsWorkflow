@@ -61,7 +61,7 @@
                                     </ol>
                                 </p>
                                 <p>
-                                    If any of this information is inadequate, please return the drive to the contributing department for review.  (There may not be any special instructions (#3); if none are present, but all other information is adequate, it will be assumed there are no special instructions.)  The contributing department may not include an indication which folder on the drive contains the important content; if it is not immediately obvious, be sure to clarify this point.
+                                    If any of this information is inadequate, please return the drive to the contributing department for review.  (There may not be any special instructions (#3); if none are present, but all other information is adequate, it will be assumed there are no special instructions.)  The contributing department may not include an indication which folder on the drive contains the important content; if it is not immediately obvious, be sure to clarify this point.  (if you are testing this workflow, go into the folder called TestFolder.)
                                 </p>
                             </span>
                         </section>
@@ -130,12 +130,15 @@
                                     <li>YResolution</li>
                                 </ol>
                                 <p>
-                                    If these are all in this order, then paste the following formula into the first blank column (probably F).
+                                    If these are all in this order, then paste the following formula into the first blank column (should be column F).  Title the column "Image Assessment" (in cell F1) and then paste this formula starting in cell F2:
                                 </p>
                                 <p>
                                     <code>
                                         =IF(AND(OR(B2>1023,C2>1023),OR(D2>299,E2>299)),"Ok!","Delete File")
                                     </code>
+                                </p>
+                                <p>
+                                    Then copy and paste the formula from F2 through the rest of the rows.
                                 </p>
                                 <p>
                                     This formula will identify any files whose length values are both less than 1024, and whose DPI is lower than 300.  We will use these designations to copy only the files that meet our base criteria.
@@ -196,7 +199,7 @@
                             <h4>Step 5: Copy Files to Local Working Directory</h4>
                             <span>
                                 <p>
-                                    Save the CSV and close Calc and gedit.  Back in Thunar, right click in the empty space and click "Open Terminal Here".  Type this command: 
+                                    Save the CSV and close Calc and gedit.  Back in the file manager (Thunar), right click in the empty space and click "Open Terminal Here".  Type this command: 
                                 </p>
                                 <p>
                                     <code>
@@ -225,7 +228,10 @@
                                     A window called "Virus Scanner" will open.  Under the "Analysis" header, you will see "Scan a directory" - Double click that.
                                 </p>
                                 <p>
-                                    A file browser will open; find your working directory (by default, in the Documents folder, there will be a folder using the Collection Name you used in Step 3).  Select that folder, and your files will be virus scanned.  If viruses are found, follow the onscreen prompts to resolve them.  
+                                    A file browser will open; find the new directory you created (by default, in the Documents folder, there will be a folder using the Collection Name you used in Step 3).
+                                </p>
+                                <p>
+                                    Select that folder, and your files will be virus scanned.  If viruses are found, follow the onscreen prompts to resolve them.  
                                 </p>
                             </span>
                         </section>
