@@ -61,7 +61,7 @@
                                     </ol>
                                 </p>
                                 <p>
-                                    If any of this information is inadequate, please return the drive to the contributing department for review.  (There may not be any special instructions (#3); if none are present, but all other information is adequate, it will be assumed there are no special instructions.)  The contributing department may not include an indication which folder on the drive contains the important content; if it is not immediately obvious, be sure to clarify this point.  (if you are testing this workflow, go into the folder called TestFolder.)
+                                    If any of this information is inadequate, please return the drive to the contributing department for review.  (There may not be any special instructions (#3); if none are present, but all other information is adequate, it will be assumed there are no special instructions.)  The contributing department may not include an indication which folder on the drive contains the important content; if it is not immediately obvious, be sure to clarify this point.  (if you are testing this workflow, go into the folder called TestFolder.  If you see about 20 images, you're in the right place.)
                                 </p>
                             </span>
                         </section>
@@ -88,11 +88,11 @@
                                     Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  (Do not right click on a folder and select Open Terminal Here!  That will open the terminal in that folder instead.)
                                 </p>
                                 <p>
-                                    At the command prompt, type 
+                                    At the command prompt, type
                                 </p>
                                 <p>
                                     <code>
-                                        exifscript
+                                      extractimagedata
                                     </code>
                                 </p>
                                 <p>
@@ -170,11 +170,11 @@
                             <h4>Step 4: Create list of files to be copied</h4>
                             <span>
                                 <p>
-                                    Now return to Thunar.  In your top level folder, right click empty space (or space to the far right if in "details" view), and click "Create Document > Empty File".  It will ask you for a name; name it 
+                                    Now return to Thunar.  In your top level folder, right click empty space (or space to the far right if in "details" view), and click "Create Document > Empty File".  It will ask you for a name; name it
                                 </p>
                                 <p>
                                     <code>
-                                        ToBeCopied.txt 
+                                        ToBeCopied.txt
                                     </code>
                                 </p>
                                 <p>
@@ -199,15 +199,15 @@
                             <h4>Step 5: Copy Files to Local Working Directory</h4>
                             <span>
                                 <p>
-                                    Save the CSV and close Calc and gedit.  Back in the file manager (Thunar), right click in the empty space and click "Open Terminal Here".  Type this command: 
+                                    Save the CSV and close Calc and gedit.  Back in the file manager (Thunar), right click in the empty space and click "Open Terminal Here".  Type this command:
                                 </p>
                                 <p>
                                     <code>
-                                        CopyGoodFiles
+                                        copygoodfiles
                                     </code>
                                 </p>
                                 <p>
-                                    This will ask for the name of your collection again - and again, it's not a final decision, just a working title is adequate.  This script will create a new folder with this name and copy all the files there.  This may take a long time.
+                                    And press enter.  This will ask for the name of your collection again - and again, it's not a final decision, just a working title is adequate.  This script will create a new folder with this name and copy all the files there.  This may take a long time.
                                 </p>
                             </span>
                         </section>
@@ -231,7 +231,7 @@
                                     A file browser will open; find the new directory you created (by default, in the Documents folder, there will be a folder using the Collection Name you used in Step 3).
                                 </p>
                                 <p>
-                                    Select that folder, and your files will be virus scanned.  If viruses are found, follow the onscreen prompts to resolve them.  
+                                    Select that folder, and your files will be virus scanned.  If viruses are found, follow the onscreen prompts to resolve them.
                                 </p>
                             </span>
                         </section>
@@ -249,13 +249,13 @@
                                     There are 2 renaming methods.  The main method uses Thunar, and goes into each folder individually and renames items.  The secondary method can be used whenever a consistent naming structure can be applied to files across many folders.  If the second method seems most appropriate, call Digital Programs Coordinator.
                                 </p>
                                 <p>
-                                    Select files: 
+                                    Select files:
                                 </p>
                                 <p>
                                     In Thunar, navigate to the directory that contains the files to be renamed.
                                 </p>
                                 <p>
-                                    Select the files in these ways: 
+                                    Select the files in these ways:
                                     <ul>
                                         <li>Ctrl-A : Selects all files.  Use this when all files in the folder are to be renamed consistently.</li>
                                         <li>Ctrl-Click : Selects only the files clicked. Use this when you have a subset of renames to apply to a small, disparate selection.</li>
@@ -269,13 +269,13 @@
                                     This new window has 3 panes: the current file name is on the left; the future file name is on the right.  The bottom is the renaming you would like to apply.  Note that future filenames will appear in red if they will overwrite each other.
                                 </p>
                                 <p>
-                                    In the bottom pane, top left drop down, select "Numbering".  Select the number of preceding 0s in Number Format.  Below that, in Text Format, select Text - Number.  Start With should be set to the number you want to start with (003568012, or whatever).  
+                                    In the bottom pane, top left drop down, select "Numbering".  Select the number of preceding 0s in Number Format.  Below that, in Text Format, select Text - Number.  Start With should be set to the number you want to start with (003568012, or whatever).
                                 </p>
                                 <p>
-                                    Text is where you put your special collection file naming prefix.  
+                                    Text is where you put your special collection file naming prefix.
                                 </p>
                                 <p>
-                                    Once the filenames in the right column appear correct, click Rename Files.  
+                                    Once the filenames in the right column appear correct, click Rename Files.
                             </p>
                             </span>
                         </section>
@@ -300,7 +300,7 @@
                                 </p>
                                 <p>
                                     <code>
-                                        JoeCopyScript
+                                        copyforJoe
                                     </code>
                                 </p>
                                 <p>
@@ -316,7 +316,7 @@
                             <img src="videos/OpenTerminal.png" />
                         </aside>
                         <hr class="col-12">
-                        
+
             </div>
         </div>
     </main>
