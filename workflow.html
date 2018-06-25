@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital Forensics Workstation Workflow Document</title>
+	<link rel="shortcut icon" type="image/x-icon" href="https://chicago.bibliocms.com/wp-content/uploads/sites/3/2016/04/CPLOpenBook_web_16x16-1.png">
+	<link rel="apple-touch-icon-precomposed" type="image/x-icon" href="https://chicago.bibliocms.com/wp-content/uploads/sites/3/2016/04/CPLreverse_web_200x200-150x150.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether-theme-arrows-dark.css" integrity="sha256-h23kMHZF9EZB4pGSPypdDjFgPawq5Hmdr2X0jD7MCVE=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/a768f4e0c8.js"></script>
+    <style>
+        .header {
+            line-height: 200px;
+        }
+        section, aside {
+            padding: 40px 0;
+        }
+        hr {
+            border-color: #ccc;
+        }
+        video, img {
+            padding: 10px;
+            border:  1px solid #ccc;
+            margin: 10px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="header">
+                        Digital Forensics Workstation Workflow
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                        <section class="col-12 step-0">
+                            <h4>Step 0: Adequate Inputs</h4>
+                            <span>
+                                <p>
+                                    This process assumes you have been given a hard drive containing digitized content.  The drive should contain an "instructions file" which makes clear the following information:
+                                </p>
+                                <p>
+                                    <ol>
+                                        <li>The name of the submitting department (SPE, NNHC, etc)</li>
+                                        <li>The name and code of the collection itself (HDG, etc)</li>
+                                        <li>Any special instructions or rule exceptions about preservation (whether standards need to be lowered in any cases, etc)</li>
+                                        <li>Clear instructions how to use current filenames to create correct filenames.</li>
+                                    </ol>
+                                </p>
+                                <p>
+                                    If any of this information is inadequate, please return the drive to the contributing department for review.  (There may not be any special instructions (#3); if none are present, but all other information is adequate, it will be assumed there are no special instructions.)  The contributing department may not include an indication which folder on the drive contains the important content; if it is not immediately obvious, be sure to clarify this point.  (if you are testing this workflow, go into the folder called TestFolder.  If you see about 20 images, you're in the right place.)
+                                </p>
+                            </span>
+                        </section>
+                        <hr class="col-12">
+                        <section class="col-6 step-1">
+                            <h4>Step 1: Open Drive, Navigate</h4>
+                            <span>
+                                <p>
+                                    Plug in USB drive.  A new icon will appear on the desktop.  Double clicking the icon will open the file manager, Thunar.  Navigate to the folder on the drive contains the important content, under which all relevant images are found.</span>
+                                </p>
+                            </span>
+                        </section>
+                        <aside class="col-6">
+                            <video controls class="video-thumbnail">
+                                <source src="videos/OpenDrive.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-2">
+                            <h4>Step 2: Run Exiftool Script and Select files that meet base criteria</h4>
+                            <span>
+                                <p>
+                                    Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  (Do not right click on a folder and select Open Terminal Here!  That will open the terminal in that folder instead.)
+                                </p>
+                                <p>
+                                    At the command prompt, type
+                                </p>
+                                <p>
+                                    <code>
+<<<<<<< HEAD
+                                        extractimagedata
+=======
+                                      extractimagedata
+>>>>>>> ef7d793005d1359d3ce78ce3c868fbb12a5bdecb
+                                    </code>
+                                </p>
+                                <p>
+                                    and press enter.  You will be asked to name the collection; this isn't a permanent choice, it merely names the output file.
+                                </p>
+                                <p>
+                                    This will output a csv (comma separated value) file in that directory.  Close the terminal window and double click the .csv to open.</span>
+                                </p>
+                            </span>
+                        </section>
+                        <aside class="col-6">
+                            <video controls class="video-thumbnail">
+                                <source src="videos/OpenTerminal.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-3">
+                            <h4>Step 3: Add formula to assess images</h4>
+                            <span>
+                                <p>
+                                    Double click the .csv to open.
+                                </p>
+                                <p>
+                                    LibreOffice Calc will open.  This is an open source program similar to Excel.  It will ask you to verify some options to use while importing the CSV file; the defaults are ok, so just click "Ok".
+                                </p>
+                                <p>
+                                    First, verify your headers are all present and in this order:
+                                </p>
+                                <ol type="A">
+                                    <li>SourceFile</li>
+                                    <li>ImageHeight</li>
+                                    <li>ImageWidth</li>
+                                    <li>XResolution</li>
+                                    <li>YResolution</li>
+                                </ol>
+                                <p>
+                                    If these are all in this order, then paste the following formula into the first blank column (should be column F).  Title the column "Image Assessment" (in cell F1) and then paste this formula starting in cell F2:
+                                </p>
+                                <p>
+                                    <code>
+                                        =IF(AND(OR(B2>1023,C2>1023),OR(D2>299,E2>299)),"Ok!","Delete File")
+                                    </code>
+                                </p>
+                                <p>
+                                    Then copy and paste the formula from F2 through the rest of the rows.
+                                </p>
+                                <p>
+                                    This formula will identify any files whose length values are both less than 1024, and whose DPI is lower than 300.  We will use these designations to copy only the files that meet our base criteria.
+                                </p>
+                            </span>
+                        </section>
+                        <aside class="col-6">
+                            <video controls class="video-thumbnail">
+                                <source src="videos/csv.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-3-5">
+                            <h4>Step 3.5: Filter on new formula</h4>
+                            <span>
+                                <p>Filter column F to show only files that are "Ok!" - hide all rows whose files should be deleted.</p>
+                                <p>Filters will probably be turned off; go to Data and click Auto Filter to turn them on.</p>
+                            </span>
+                        </section>
+                        <aside class="col-6">
+                            <video controls class="video-thumbnail">
+                                <source src="videos/CalcFilter.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-4">
+                            <h4>Step 4: Create list of files to be copied</h4>
+                            <span>
+                                <p>
+                                    Now return to Thunar.  In your top level folder, right click empty space (or space to the far right if in "details" view), and click "Create Document > Empty File".  It will ask you for a name; name it
+                                </p>
+                                <p>
+                                    <code>
+                                        ToBeCopied.txt
+                                    </code>
+                                </p>
+                                <p>
+                                    Now double click the file called ToBeCopied.txt - it should open immediately in gedit, a simple text editor; if it asks how you want to open it, choose gedit.  The file will be empty.
+                                </p>
+                                <p>
+                                    Back in Calc, select the file names *that are to be retained* and copy/paste the column (without the header) into gedit.  Click Save to save the file (ToBeCopied.txt).
+                                </p>
+                                <p>
+                                    If there are any special instructions from the contributing department regarding files that need to be retained regardless of image quality, be sure to add them to the file, following the format of the rest.  You can copy/paste their names from the spreadsheet as well.
+                                </p>
+                            </span>
+                        </section>
+                        <aside class="col-6">
+                            <video controls class="video-thumbnail">
+                                <source src="videos/ToBeCopied.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-5">
+                            <h4>Step 5: Copy Files to Local Working Directory</h4>
+                            <span>
+                                <p>
+                                    Save the CSV and close Calc and gedit.  Back in the file manager (Thunar), right click in the empty space and click "Open Terminal Here".  Type this command:
+                                </p>
+                                <p>
+                                    <code>
+                                        copygoodfiles
+                                    </code>
+                                </p>
+                                <p>
+                                    And press enter.  This will ask for the name of your collection again - and again, it's not a final decision, just a working title is adequate.  This script will create a new folder with this name and copy all the files there.  This may take a long time.
+                                </p>
+                            </span>
+                        </section>
+                        <aside class="col-6 text-center">
+                            <img src="videos/OpenTerminal.png" />
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-5">
+                            <h4>Step 6: Virus Scanning</h4>
+                            <span>
+                                <p>
+                                    *Note: BitCurator provides extensive forensics tools, many of which are directed at recovering and managing more difficult hardware (old or damaged hard drives).  At a minimum, our inputs will be virus scanned, but if additional examination is required, see BitCurator documentation: https://wiki.bitcurator.net/index.php?title=Main_Page
+                                </p>
+                                <p>
+                                    On the desktop, you will find a number of folders with forensics tools.  Double click the "Additional Tools" folder and, within it, double click "ClamTK".
+                                </p>
+                                <p>
+                                    A window called "Virus Scanner" will open.  Under the "Analysis" header, you will see "Scan a directory" - Double click that.
+                                </p>
+                                <p>
+                                    A file browser will open; find the new directory you created (by default, in the Documents folder, there will be a folder using the Collection Name you used in Step 3).
+                                </p>
+                                <p>
+                                    Select that folder, and your files will be virus scanned.  If viruses are found, follow the onscreen prompts to resolve them.
+                                </p>
+                            </span>
+                        </section>
+                        <aside class="col-6">
+                            <video controls class="video-thumbnail">
+                                <source src="videos/VirusScan.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-5">
+                            <h4>Step 7: Renaming</h4>
+                            <span>
+                                <p>
+                                    There are 2 renaming methods.  The main method uses Thunar, and goes into each folder individually and renames items.  The secondary method can be used whenever a consistent naming structure can be applied to files across many folders.  If the second method seems most appropriate, call Digital Programs Coordinator.
+                                </p>
+                                <p>
+                                    Select files:
+                                </p>
+                                <p>
+                                    In Thunar, navigate to the directory that contains the files to be renamed.
+                                </p>
+                                <p>
+                                    Select the files in these ways:
+                                    <ul>
+                                        <li>Ctrl-A : Selects all files.  Use this when all files in the folder are to be renamed consistently.</li>
+                                        <li>Ctrl-Click : Selects only the files clicked. Use this when you have a subset of renames to apply to a small, disparate selection.</li>
+                                        <li>Shift-Click : Selects all files between 2 clicks.  Use this when you have a subset of renames to apply to a larger, contiguous selection.</li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    Right click the selection and select "Rename" to bring up Thunar's renaming tool.
+                                </p>
+                                <p>
+                                    This new window has 3 panes: the current file name is on the left; the future file name is on the right.  The bottom is the renaming you would like to apply.  Note that future filenames will appear in red if they will overwrite each other.
+                                </p>
+                                <p>
+                                    In the bottom pane, top left drop down, select "Numbering".  Select the number of preceding 0s in Number Format.  Below that, in Text Format, select Text - Number.  Start With should be set to the number you want to start with (003568012, or whatever).
+                                </p>
+                                <p>
+                                    Text is where you put your special collection file naming prefix.
+                                </p>
+                                <p>
+                                    Once the filenames in the right column appear correct, click Rename Files.
+                            </p>
+                            </span>
+                        </section>
+                        <aside class="col-6">
+                            <img src="videos/Renaming.png" alt="">
+                        </aside>
+                        <hr class="col-12">
+                        <section class="col-6 step-5">
+                            <h4>Step 8: Submitting the files for upload</h4>
+                            <span>
+                                <p>
+                                    Return to the Desktop.  Right click the external hard drive icon and click "Unmount Volume".  (If, instead, you have the option to "Mount Volume", click the other icon - there should be a duplicate on the Desktop.)  You will be asked for the administrator password (by default, this is bcadmin).  Another window will pop up saying that the drive is unmounted; click ok.
+                                </p>
+                                <p>
+                                    Physically unplug the drive and set it aside.
+                                </p>
+                                <p>
+                                    Plug in the drive that will be submitted for cloud storage upload (the "Joe Drive").  Double click its icon on the desktop to mount it.  Double click on the new icon to open the drive in Thunar.
+                                </p>
+                                <p>
+                                    Right click in empty space in the folder (or space to the far right if in "details" view) and click "open terminal here".  At the command prompt, type:
+                                </p>
+                                <p>
+                                    <code>
+                                        copyforJoe
+                                    </code>
+                                </p>
+                                <p>
+                                    And press enter.  The script will ask you to enter the name of your working directory.  This must be identical to the name you gave in step 3.  Case sensitive.  (If it's not identical, nothing disasterous will happen, the script just won't be able to find the directory, and won't copy anything.)
+                                </p>
+                                <p>
+                                    When this copy is complete, right click the drive's icon on the desktop, and select Unmount Volume.  Unplug the drive and go give it to Joe.
+                                </p>
+                            </span>
+                        </section>
+                        <aside class="col-6 text-center">
+                            <img src="videos/UnmountVolume.png" />
+                            <img src="videos/OpenTerminal.png" />
+                        </aside>
+                        <hr class="col-12">
+
+            </div>
+        </div>
+    </main>
+    <script>
+        $( document ).ready(function() {
+            $(".video-thumbnail").click(function() {
+                $(this).parents("aside").toggleClass("col-6");
+                $(this).parents("aside").toggleClass("col-12");
+                $(this).get(0).play();
+            });
+        });
+    </script>
+</body>
+</html>
